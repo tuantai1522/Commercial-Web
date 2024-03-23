@@ -1,0 +1,74 @@
+1. Type, interface: to create custom type
+2. Must define type of variable
+3. Kind of variable:
+  + number
+  + string
+  + React.Dispatch<React.SetStateAction<number>>: function set
+  + add: (a: number, b: number) => number: to define a function with 2 numbers and return a number
+  + const [count, setCount] = useState<number>(0): to define this state is a number
+  + location?: string: this field is not required
+  + level?: string | number: a type of level would be string or number
+  + const teacher2: typeof teacher = {} => we can know type of ITeacher
+  
+4. 
+interface IPeople {
+  name: string;
+  age: number;
+  location?: string;
+}
+
+interface ITeacher extends IPeople {
+  birthDay: Date;
+}
+=> interface ITeacher will extend all properties from IPeople
+=> 1 interface can extends many interfaces
+5. enum
+enum Subject {
+  Math,
+  English,
+  Literature,
+}
+=> enum can be any values in this Subjec field
+=> When we use Subject.Math => it will return idx of enum
+
+enum Subject {
+  Math = "Math",
+  English = "English",
+  Literature = "Literature",
+}
+=> return value
+6
+interface ApiResponse<DataType, StatusType> {
+  data: DataType;
+  message: "success" | "failure";
+  status: StatusType;
+}
+
+  const FilmReponse: ApiResponse<
+    { name: string; directorName: string },
+    string
+  > = {
+    data: { name: "Atomic habits", directorName: "John Doe" },
+    message: "success",
+    status: "403",
+  };
+
+  const BookReponse: ApiResponse<
+    {
+      name: string;
+      authorName: string;
+      releasedDate: Date;
+    },
+    number
+  > = {
+    data: {
+      name: "Atomic habits",
+      authorName: "John Doe",
+      releasedDate: new Date(),
+    },
+    message: "failure",
+    status: 400,
+  };
+
+
+=> Every object will have different kind of data => Generic type

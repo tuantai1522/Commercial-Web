@@ -1,0 +1,16 @@
+﻿return object
+{
+	message = "Message"
+	status = -1, 0, 1
+	DT = data
+}
+
+1. status:
+-1: Error with server
+0: Executing query but can not find data
+1: Executing query successfully
+
+2. DT
+Array: when finding all records (FetchAll)
+one variable: when only find one record (FetchById)
+null: when update, delete, and create (Update, Delete, and Create)
