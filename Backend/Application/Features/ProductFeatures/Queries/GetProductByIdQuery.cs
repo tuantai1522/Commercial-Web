@@ -1,4 +1,5 @@
 ﻿using Application.Interface;
+using Domain.DTO;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -32,11 +33,14 @@ namespace Application.Features.ProductFeatures.Queries
                             status = 0,
                             DT = (object)null
                         };
+
+                    ProductDTO productDTO = Util.BuildProductDTO(product);
+
                     return new
                     {
                         message = "Fetching product successfully",
                         status = 1,
-                        DT = product
+                        DT = productDTO
                     };
 
                 }

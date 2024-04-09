@@ -51,7 +51,7 @@ namespace Persistence.Seeding
                        QuantityInStock = 13,
                        ImageUrl = "https://img.fantaskycdn.com/cf56af93a6490ab8b6831b9271859224_750x.jpg",
                        CategoryId = 1
-                    
+
                    },
                    new Product()
                    {
@@ -104,45 +104,45 @@ namespace Persistence.Seeding
                        CategoryId = 2
                    },
                    new Product()
-                    {
-                        Id = 7,
-                        Name = "HUDSON Men's Blake Slim Straight",
-                        Price = 67.49,
-                        Description = "Pants for men",
-                        QuantityInStock = 23,
-                        ImageUrl = "https://m.media-amazon.com/images/I/71wbSqIyuEL._AC_SY741_.jpg",
-                        CategoryId = 2
-                    },
+                   {
+                       Id = 7,
+                       Name = "HUDSON Men's Blake Slim Straight",
+                       Price = 67.49,
+                       Description = "Pants for men",
+                       QuantityInStock = 23,
+                       ImageUrl = "https://m.media-amazon.com/images/I/71wbSqIyuEL._AC_SY741_.jpg",
+                       CategoryId = 2
+                   },
                    new Product()
-                    {
-                        Id = 8,
-                        Name = "Ergodyne Men's Standard Lightweight Base Layer",
-                        Price = 22.49,
-                        Description = "Pants for men",
-                        QuantityInStock = 1,
-                        ImageUrl = "https://m.media-amazon.com/images/I/51OvWUWbfvL._AC_SX679_.jpg",
-                        CategoryId = 2
-                    },
+                   {
+                       Id = 8,
+                       Name = "Ergodyne Men's Standard Lightweight Base Layer",
+                       Price = 22.49,
+                       Description = "Pants for men",
+                       QuantityInStock = 1,
+                       ImageUrl = "https://m.media-amazon.com/images/I/51OvWUWbfvL._AC_SX679_.jpg",
+                       CategoryId = 2
+                   },
                    new Product()
-                    {
-                        Id = 9,
-                        Name = "LAPCOFR unisex adult",
-                        Price = 66.37,
-                        Description = "Pants for men",
-                        QuantityInStock = 100,
-                        ImageUrl = "https://m.media-amazon.com/images/I/51LtnVXcodL._SX425_.jpg",
-                        CategoryId = 2
-                    },
+                   {
+                       Id = 9,
+                       Name = "LAPCOFR unisex adult",
+                       Price = 66.37,
+                       Description = "Pants for men",
+                       QuantityInStock = 100,
+                       ImageUrl = "https://m.media-amazon.com/images/I/51LtnVXcodL._SX425_.jpg",
+                       CategoryId = 2
+                   },
                    new Product()
-                    {
-                        Id = 10,
-                        Name = "Essentials Men's Classic-Fit Wrinkle-Resistant",
-                        Price = 8.70,
-                        Description = "Pants for men",
-                        QuantityInStock = 28,
-                        ImageUrl = "https://m.media-amazon.com/images/I/81HVw7Pzw9L._AC_SX679_.jpg",
-                        CategoryId = 2
-                    },
+                   {
+                       Id = 10,
+                       Name = "Essentials Men's Classic-Fit Wrinkle-Resistant",
+                       Price = 8.70,
+                       Description = "Pants for men",
+                       QuantityInStock = 28,
+                       ImageUrl = "https://m.media-amazon.com/images/I/81HVw7Pzw9L._AC_SX679_.jpg",
+                       CategoryId = 2
+                   },
                    new Product()
                    {
                        Id = 11,

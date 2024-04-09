@@ -1,6 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { BACKEND_URL } from "../utils/config";
+import { store } from "../store/store";
 
 // Set config defaults when creating the instance
 const instance = axios.create({
@@ -13,6 +14,13 @@ const instance = axios.create({
 // ] = `Bearer ${localStorage.getItem("jwt")}`;
 
 instance.defaults.withCredentials = true;
+
+// Add a response interceptor
+instance.interceptors.request.use((config) => {
+  const token = store.getState().account.user?.token;
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
 
 // Add a request interceptor
 instance.interceptors.request.use(

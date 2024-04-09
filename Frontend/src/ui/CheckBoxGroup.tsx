@@ -1,6 +1,5 @@
 import {
   Checkbox,
-  CircularProgress,
   FormControlLabel,
   FormGroup,
   FormLabel,
@@ -32,11 +31,12 @@ const CheckBoxGroup = ({ title, checked, onChange }: Props) => {
     onChange(newChecked);
   };
 
-  const { isFetching, data }: any = useReadCategory();
+  const { data }: any = useReadCategory();
 
-  if (isFetching) return <CircularProgress />;
-
-  const { dt: categories } = data;
+  let categories: any = [];
+  if (data && data.dt) {
+    categories = data.dt;
+  }
 
   return (
     <>

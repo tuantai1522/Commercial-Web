@@ -1,7 +1,7 @@
 import axios from "../setup/axios";
 
 import { BACKEND_URL } from "../utils/config";
-import ApiResponse from "../models/other/apiResponse";
+import ApiResponse from "../models/other/apiResponseArray";
 import Category from "../models/class/category";
 
 const fetchAllCategories = async () => {

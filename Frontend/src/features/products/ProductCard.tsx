@@ -10,6 +10,11 @@ import {
 } from "@mui/material";
 import Product from "../../models/class/product.ts";
 import { formatCurrency } from "../../utils/helper.ts";
+import { useUpSertCartItemMutation } from "../../services/apiCarts.ts";
+import { getCookie, setCookie } from "typescript-cookie";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 // import { NavLink } from "react-router-dom";
 
 // to define all properties or methods passed from father's component
@@ -18,6 +23,25 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
+  const navigate = useNavigate();
+  const [upsertCartItem] = useUpSertCartItemMutation();
+
+  const handleSubmit = async () => {
+    const result: any = await upsertCartItem({
+      productId: product.id,
+      quantity: 1,
+      customerName: getCookie("CustomerName"),
+      isAdding: 1,
+    });
+
+    if (result && result.data && result.data.message) {
+      toast.success(result.data.message);
+    }
+
+    if (result && result.data && result.data.customerName) {
+      setCookie("CustomerName", result.data.customerName);
+    }
+  };
   return (
     <>
       <Card>
@@ -48,16 +72,19 @@ const ProductCard = ({ product }: Props) => {
             {formatCurrency(product.price)}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {product.category.name}
+            {product.categoryName}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Add to cart</Button>
+          <Button onClick={handleSubmit} size="small">
+            Add to cart
+          </Button>
 
-          <Button size="small">
-            {/* <NavLink to={`/catalog/${product.id}`}> */}
+          <Button
+            size="small"
+            onClick={() => navigate(`/product/${product.id}`)}
+          >
             View
-            {/* </NavLink> */}
           </Button>
         </CardActions>
       </Card>

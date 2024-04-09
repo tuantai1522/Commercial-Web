@@ -1,7 +1,7 @@
 interface ApiResponse<T> {
   message: string;
   status: number;
-  DT: Array<T>;
+  dt: T;
 }
 
 export default ApiResponse;

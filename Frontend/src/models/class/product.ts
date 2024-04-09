@@ -1,5 +1,3 @@
-import Category from "./category";
-
 interface Product {
   id: number;
   name: string;
@@ -8,7 +6,7 @@ interface Product {
   imageUrl: string;
   categoryId: number;
   quantityInStock: number;
-  category: Category;
+  categoryName: string;
 }
 
 export default Product;

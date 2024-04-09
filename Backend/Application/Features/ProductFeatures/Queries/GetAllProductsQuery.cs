@@ -1,6 +1,7 @@
 ﻿using Application.Common;
 using Application.Features.ProductFeatures.Extensions;
 using Application.Interface;
+using Domain.DTO;
 using Domain.Entities;
 using Domain.RequestHelpers;
 using MediatR;
@@ -42,6 +43,7 @@ namespace Application.Features.ProductFeatures.Queries
                                                     query.productParams.PageSize);
 
 
+
                     if (products == null)
                     {
                         return new
@@ -52,6 +54,14 @@ namespace Application.Features.ProductFeatures.Queries
                         };
                     }
 
+                    //Build data
+                    List<ProductDTO> productDTOs = new List<ProductDTO>();
+                    foreach(Product product in products)
+                    {
+                        var productDTO = Util.BuildProductDTO(product);
+                        productDTOs.Add(productDTO);
+                    }
+
                     return new
                     {
                         message = "Fetching products successfully",
@@ -60,7 +70,7 @@ namespace Application.Features.ProductFeatures.Queries
                         {
                             TotalCount = products.MetaData.TotalCount,
                             TotalPages = products.MetaData.TotalPage,
-                            Products = products.ToList()
+                            Products = productDTOs
                         }
                     };
                 }

@@ -10,8 +10,19 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import Product from "./features/products/Product";
+
 import About from "./features/about/about";
+import ProductPage from "./pages/ProductPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+import PageNotFound from "./pages/PageNotFound";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PrivateRoutes from "./ProtectedRoutes";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,14 +42,36 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<AppLayout />}>
+              <Route element={<PrivateRoutes />}>
+                <Route path="checkout" element={<CheckoutPage />} />
+              </Route>
+
               <Route index element={<Navigate replace to="home" />} />
               <Route path="home" element={<Home />} />
-              <Route path="product" element={<Product />} />
+              <Route path="product" element={<ProductPage />} />
+              <Route path="product/:id" element={<ProductDetailsPage />} />
               <Route path="about" element={<About />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="*" element={<PageNotFound />} />
             </Route>
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
+      {/* Display toast */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
